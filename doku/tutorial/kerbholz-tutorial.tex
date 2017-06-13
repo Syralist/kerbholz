@@ -1,0 +1,171 @@
+\documentclass[aspectratio=1610,svgnames]{beamer}
+
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{selinput}
+\SelectInputMappings{%
+   adieresis={ä},
+   germandbls={ß}
+   }
+\usepackage{csquotes}
+
+\usetheme{PaloAlto}  %% Themenwahl
+
+\setbeamercovered{transparent}
+%\setbeamertemplate{footline}[frame number]
+\usecolortheme{spruce}		% grün
+\usecolortheme[named=MSUgreen]{structure}
+\setbeamercolor{logo}{bg=white}
+\setbeamercolor{title in sidebar}{fg=white}
+\newcommand{\hshblogo}{\includegraphics[width=1.3cm]{space-logo}}
+\newcommand{\divider}[1]{\begin{frame} %
+\begin{alertblock}{} %
+\centering\usebeamerfont{section title}#1 %
+\end{alertblock} %
+\end{frame}}
+ 
+\newcommand{\code}[1]{\texttt{#1}}
+
+\title{Ein digitales Kerbholz mit Python und Flask}
+\author{Thomas Helmke}
+\date{when its done}
+\logo{\includegraphics[width=1.1cm]{space-logo}}
+ 
+\begin{document}
+\maketitle
+\frame{\tableofcontents}
+
+\section{Einleitung}
+\divider{\insertsection}
+\begin{frame}%[<+->] %%Eine Folie
+	\frametitle{Worum geht es?} %%Folientitel
+	\begin{itemize}
+        \item eine Einführung in Web-Apps mit Python und Flask
+	\end{itemize}
+\end{frame}
+
+% \section{Grundlagen}
+% \divider{\insertsection}
+% \subsection{Basiskörper}
+% \divider{\insertsubsection}
+% \begin{frame}[<+->]
+%     \frametitle{Basiskörper}
+%     \begin{itemize}
+%         \item Würfel -- \code{cube([xLänge, yLänge, zLänge]);}
+%         \item Zylinder -- \code{cylinder(h = Höhe, r1 = RadiusUnten, r2 = RadiusOben);}
+%         \item Kugel -- \code{sphere(r = Radius);}
+%     \end{itemize}
+% \end{frame} 
+% \begin{frame}[<+->]
+%     \frametitle{optionale Parameter}
+%     \begin{itemize}
+%         \item \code{center} -- zentriert den Körper im Koordinatenursprung
+%         \item \code{\$fn} -- Anzahl der Flächen für runde Körper
+%         \item \code{d} -- Durchmesser statt Radius
+%     \end{itemize}
+% \end{frame} 
+% \subsection{Basisoperationen}
+% \divider{\insertsubsection}
+% \begin{frame}[<+->]
+%     \frametitle{Basisoperationen I}
+%     \begin{itemize}
+%         \item Verschieben -- \code{translate([x, y, z])}
+%         \item Rotieren -- \code{rotate([xGrad, yGrad, zGrad])}
+%         \item Skalieren -- \code{scale([xFaktor, yFaktor, zFaktor])}
+%         \item Spiegeln -- \code{mirror([x,y,z])}
+%     \end{itemize}
+% \end{frame} 
+% \begin{frame}[<+->]
+%     \frametitle{Beispiel}
+%     \code{translate([2,3,4])\newline%
+%         \hspace*{1em}rotate([45,0,0])\newline%
+%         \hspace*{2em}scale([0.5,1,2])\newline%
+%         \hspace*{3em}cube([1,1,1]);}
+% \end{frame} 
+% \begin{frame}[<+->]
+%     \frametitle{Basisoperationen II}
+%     \begin{itemize}
+%         \item Vereinen -- \code{union()\{\}}
+%         \item Abziehen -- \code{difference()\{\}}
+%         \item Überschneidung -- \code{intersection()\{\}}
+%         % \item Spiegeln -- \code{mirror([x,y,z])}
+%     \end{itemize}
+% \end{frame} 
+
+% \section{Fortgeschrittene Techniken}
+% \divider{\insertsection}
+% \subsection{Variablen}
+% \divider{\insertsubsection}
+% \begin{frame}[<+->]
+%     \frametitle{Variablen I}
+%     \begin{itemize}
+%         \item Werte können in Variablen gespeichert werden
+%         \item Variablen können mathematisch verrechnet werden
+%     \end{itemize}
+%     \uncover<+->{%
+%     \code{xsize = 3.5;\newline%
+%         ysize = xsize;\newline%
+%         zsize = 0.5*xsize;}}
+% \end{frame}
+% \begin{frame}[<+->]
+%     \frametitle{Variablen II}
+%     \begin{itemize}
+%         \item Variablen können an Funktionen übergeben werden
+%     \end{itemize}
+%     \uncover<+->{%
+%     \code{translate(v=[xpos*(gap+xsize)+0.5*xsize,ypos*(gap+ysize)+0.5*ysize,0.5*zsize])\newline%
+%         \hspace*{1em}cylinder(h=1.1*zsize, r=0.4*xsize, \$fn=20, center=true);}}
+% \end{frame}
+% \subsection{Iteration}
+% \divider{\insertsubsection}
+% \begin{frame}[<+->]
+%     \frametitle{Iteration}
+%     \begin{itemize}
+%         \item For-Schleife, wie aus anderen Sprachen bekannt
+%         \item Entweder Bereich vorgeben oder Vektor von Elementen
+%         \item \code{for(variable = [start : increment : end])}
+%         \item \code{for(variable = [vector])}
+%     \end{itemize}
+% \end{frame}
+% \subsection{Module}
+% \divider{\insertsubsection}
+% \begin{frame}[<+->]
+%     \frametitle{Module I}
+%     \begin{itemize}
+%         \item beliebige Funktionen zu Modulen zusammenfassen
+%         \item Wiederverwendbarkeit von Code
+%         \item Module können in externe Dateien ausgelagert werden
+%     \end{itemize}
+% \end{frame}
+% \begin{frame}[<+->]
+%     \frametitle{Module II}
+%     Datei \enquote{mycube.scad}\newline
+%     \code{module mycube(var1, var2)\newline%
+%         \{\newline%
+%         \hspace*{1em}cube([var1,var2,var1+var2]);\newline%
+%         \}\newline%
+%         mycube(1,2);}
+% \end{frame}
+% \begin{frame}[<+->]
+%     \frametitle{Module III}
+%     Datei \enquote{main.scad}\newline
+%     \code{use <mycube.scad>;\newline%
+%         mycube(2,3);\newline%
+%         translate([1,2,3])\newline%
+%         \hspace*{1em}mycube(1,2);}
+% \end{frame}
+
+
+\section{Weitere Infos}
+\divider{\insertsection}
+\begin{frame}
+    \frametitle{Weitere Infos}
+    \begin{itemize}
+        \item \url{https://github.com/Syralist/kerbholz}
+        \item \url{https://www.sqlalchemy.org/}
+        \item \url{http://flask-sqlalchemy.pocoo.org/}
+        % \item \url{https://en.wikibooks.org/wiki/OpenSCAD_User_Manual}
+    \end{itemize}
+\end{frame}
+\end{document}
